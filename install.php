@@ -40,3 +40,4 @@ $sqlFile = OW::getPluginManager()->getPlugin( 'geolocationdata' )->getRootDir().
         }
 
         fclose($fd);
+

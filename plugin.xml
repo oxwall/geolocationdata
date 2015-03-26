@@ -2,7 +2,7 @@
 <plugin>
 	<name>geolocationdata</name>
 	<key>geolocationdata</key>
-	<description>Installs IPs of countries from around the world</description>
+	<description>Installs IPs of countries from around the world.</description>
     <author>Skalfa LLC</author>
     <authorEmail>GiperProger@gmail.com</authorEmail>
 	<authorUrl>http://www.skalfa.com</authorUrl>
