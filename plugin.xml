@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
-	<name>geolocationdata</name>
+	<name>Geolocation IPs database</name>
 	<key>geolocationdata</key>
 	<description>Installs IPs of countries from around the world.</description>
     <author>Skalfa LLC</author>
