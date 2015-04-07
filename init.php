@@ -7,4 +7,4 @@
  * and is licensed under Oxwall Store Commercial License.
  * Full text of this license can be found at http://www.oxwall.org/store/oscl
  */
-$a = 43;
+
