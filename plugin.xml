@@ -3,12 +3,12 @@
 	<name>Geolocation IPs database</name>
 	<key>geolocationdata</key>
 	<description>Installs IPs of countries from around the world.</description>
-    <author>Skalfa LLC</author>
-    <authorEmail>GiperProger@gmail.com</authorEmail>
+    <author>Oxwall Foundation</author>
+    <authorEmail>plugins@oxwall.org</authorEmail>
 	<authorUrl>http://www.skalfa.com</authorUrl>
-	<developerKey>5a2823209beb0450c79a1c033ed5c49c</developerKey>
+	<developerKey>e547ebcf734341ec11911209d93a1054</developerKey>
     <build>1</build>
-    <copyright>(C) 2009 Skalfa LLC. All rights reserved.</copyright>
+    <copyright>(C) 2009 Oxwall Foundation. All rights reserved.</copyright>
 	<license>The BSD License</license>
-    <licenseUrl>http://www.opensource.org/licenses/bsdx-license.php</licenseUrl>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
 </plugin>
