@@ -10,6 +10,65 @@
  */
 
 $dbPrefix = OW_DB_PREFIX;
+
+$dbo = OW::getDbo();
+$logger = OW::getLogger();
+
+// add absent columns (fix for https://github.com/skalfa/workflow/issues/1223)
+try
+{
+    $query = "SHOW COLUMNS FROM `{$dbPrefix}base_geolocation_ip_to_country` LIKE 'ipFrom'";
+    $column = $dbo->queryForRow($query);
+
+    if ( !$column )
+    {
+        $query = "ALTER TABLE `{$dbPrefix}base_geolocation_ip_to_country` ADD `ipFrom` bigint UNSIGNED";
+        $dbo->query($query);
+    }
+    else
+    {
+        $query = "ALTER TABLE `{$dbPrefix}base_geolocation_ip_to_country` CHANGE `ipFrom` `ipFrom` bigint UNSIGNED";
+        $dbo->query($query);
+    }
+}
+catch (Exception $e)
+{
+    $logger->addEntry(json_encode($e));
+}
+
+try
+{
+    $query = "SHOW COLUMNS FROM `{$tblPrefix}base_geolocation_ip_to_country` LIKE 'ipTo'";
+    $column = $dbo->queryForRow($query);
+
+    if ( !$column )
+    {
+        $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD `ipTo` bigint UNSIGNED";
+        $dbo->query($query);
+    }
+    else
+    {
+        $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` CHANGE `ipTo` `ipTo` bigint UNSIGNED";
+        $dbo->query($query);
+    }
+}
+catch (Exception $e)
+{
+    $logger->addEntry(json_encode($e));
+}
+
+// add index
+try
+{
+    $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD INDEX `ipRange` (`ipFrom`, `ipTo`)";
+    $dbo->query($query);
+
+}
+catch (Exception $e)
+{
+    $logger->addEntry(json_encode($e));
+}
+
 $plugin = OW::getPluginManager()->getPlugin('geolocationdata');
 OW::getLanguage()->importPluginLangs($plugin->getRootDir() . 'langs.zip', 'geolocationdata');
 $sqlFile = OW::getPluginManager()->getPlugin( 'geolocationdata' )->getRootDir()."ow_geolocationdata_ipv4.sql";
